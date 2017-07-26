@@ -1,3 +1,4 @@
 tmp
 server/node_modules
+server/tmp
 client/node_modules
