@@ -1,5 +1,25 @@
 ### react-gallery
 
+
+### Todo
+
+#### Server
+- Add swagger spec
+- create ci dockerfile
+- 100% cover unit tests
+- add functional tests
+
+#### Client
+- 100% cover unit tests
+- add styling to image components
+- add fav functionality
+- persist user data in browser
+- add tag input feature
+- add browser-side caching of data (LRU)
+- improve bundle size
+- redux?
+- browser testing
+
 #### Running
 
 ```
