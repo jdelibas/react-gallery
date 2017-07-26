@@ -1,0 +1,24 @@
+version: '2'
+services:
+    frontend:
+      build: ./client/.
+      image: image-demo-frontend:latest-dev
+      volumes:
+        - ./frontend/src:/app/src
+      command: npm run start:dev
+      ports:
+        - 8080:8080
+      links:
+        - backend
+    backend:
+      build: ./server/.
+      image: image-demo-backend:latest-dev
+      volumes:
+        - ./server:/app
+      command: npm run start:dev
+      ports:
+        - 8081:8080
+      links: 
+        - redis
+    redis:
+      image: redis:3
