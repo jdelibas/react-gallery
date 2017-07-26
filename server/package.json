@@ -4,14 +4,59 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/index.js",
+    "start:dev": "./node_modules/.bin/nodemon --watch src --exec node src/index.js",
+    "lint": "./node_modules/.bin/standard",
+    "test": "export NODE_ENV=test && ./node_modules/.bin/ava",
+    "coverage": "export NODE_ENV=test && ./node_modules/.bin/nyc ./node_modules/.bin/ava"
   },
   "author": "James Delibas <jdelibas@gmail.com> (https://jamjar.rocks)",
   "license": "DBAD",
   "devDependencies": {
-    "nodemon": "^1.11.0"
+    "ava": "^0.21.0",
+    "nodemon": "^1.11.0",
+    "nyc": "^11.0.3",
+    "proxyquire": "^1.8.0",
+    "sinon": "^2.4.0",
+    "standard": "^10.0.2"
   },
   "dependencies": {
-    "hapi": "^16.5.0"
+    "axios": "^0.16.2",
+    "hapi": "^16.5.0",
+    "hapi-async-handler": "^1.0.3",
+    "redis": "^2.7.1"
+  },
+  "pre-commit": {
+    "run": "lint"
+  },
+  "ava": {
+    "files": [
+      "test/**/*.js"
+    ],
+    "source": [
+      "src/**/*.{js,jsx}",
+      "!dist/**/*"
+    ],
+    "concurrency": 5,
+    "failFast": true,
+    "tap": false,
+    "powerAssert": false
+  },
+  "nyc": {
+    "lines": 90,
+    "statements": 90,
+    "functions": 90,
+    "branches": 90,
+    "include": [
+      "src/**/*.js"
+    ],
+    "reporter": [
+      "text",
+      "lcov",
+      "html"
+    ],
+    "cache": true,
+    "all": true,
+    "check-coverage": true
   }
 }

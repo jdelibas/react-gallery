@@ -1,6 +1,3 @@
-http://api.flickr.com/services/feeds/photos_public.gne?format=json&nojsoncallback=1
-return axios.get(`${this.url}&tags=${tag}`)
-
 'use strict'
 
 const Hapi = require('hapi')
@@ -14,7 +11,10 @@ const server = new Hapi.Server({
 })
 
 server.connection({
-  port: config.port
+  port: config.port,
+  routes: {
+    cors: true
+  }
 })
 
 server.register([

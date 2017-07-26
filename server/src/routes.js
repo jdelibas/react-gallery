@@ -1,6 +1,6 @@
 'use strict'
 
-const controller = require('images.controller')
+const controller = require('./images/images.controller')
 
 module.exports = [{
   method: 'GET',
