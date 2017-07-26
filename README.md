@@ -1,3 +1,23 @@
+### react-gallery
+
+#### Running
+
+```
+  docker-compose up
+```
+
+#### Installation
+
+##### Client
+
+```
+  cd ./client
+  npm install
+  npm run start:dev
+```
+
+##### Server
+
 Requirements:
 
 * build a page that shows pictures using an image feed.
